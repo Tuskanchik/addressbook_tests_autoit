@@ -11,16 +11,17 @@ namespace addressbook_tests_autoit
         public void TestGroupCreation()
         {
             List<GroupData> oldGroups = app.Groups.GetGroupList();
-
+            Console.WriteLine(oldGroups);
             GroupData newGroup = new GroupData()
             {
-                Name = "test"
+                Name = "t"
             };
-
             app.Groups.Add(newGroup);
 
             List<GroupData> newGroups = app.Groups.GetGroupList();
+            Console.WriteLine(newGroups);
             oldGroups.Add(newGroup);
+            Console.WriteLine(oldGroups);
             oldGroups.Sort();
             newGroups.Sort();
 
