@@ -1,28 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using NUnit.Framework;
+using System.Text;
 
 namespace addressbook_tests_autoit
 {
-    [TestFixture]
-    public class GroupCreationTests : TestBase
+    public class GroupRemovalTests : TestBase
     {
         [Test]
-        public void TestGroupCreation()
+        public void TestGroupRemoval()
         {
             List<GroupData> oldGroups = app.Groups.GetGroupList();
-            GroupData newGroup = new GroupData()
-            {
-                Name = "qqqq"
-            };
-            app.Groups.Add(newGroup);
+            app.Groups.Remove();
 
             app.Groups.CloseGroupsDialogue();
 
             List<GroupData> newGroups = app.Groups.GetGroupList();
 
-
-            oldGroups.Add(newGroup);
+            oldGroups.RemoveAt(0);
             oldGroups.Sort();
             newGroups.Sort();
 
